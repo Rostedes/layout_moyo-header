@@ -1,22 +1,26 @@
-/* style.css */
-
 :root {
-  --blue: #00ACDC;
+  --blue: #00acdc;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+html {
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   font-family: Roboto, sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
-header {
+.page-header {
   display: flex;
   align-items: center;
   width: 100%;
@@ -31,17 +35,12 @@ header {
   flex-shrink: 0;
 }
 
-.logo a {
-  display: flex;
-  align-items: center;
-}
-
 .logo img {
   width: 40px;
   height: 40px;
 }
 
-nav {
+.main-nav {
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -56,7 +55,7 @@ nav {
   justify-content: flex-start;
 }
 
-.nav-list li {
+.nav-item {
   flex-shrink: 0;
   height: 60px;
   display: flex;
@@ -65,17 +64,15 @@ nav {
   position: relative;
 }
 
-.nav-list li:first-child {
+.nav-item:first-child {
   margin-left: 0;
 }
 
-.nav-list a {
+.nav-link {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding-top: 23px;
-  padding-bottom: 22px;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 500;
@@ -88,25 +85,15 @@ nav {
   line-height: 100%;
 }
 
-.nav-list a[data-qa="apple"] {
-  padding-top: 22.5px;
-  padding-bottom: 22.5px;
-}
-
-.nav-list a[data-qa="samsung"] {
-  padding-top: 22.5px;
-  padding-bottom: 22.5px;
-}
-
-.nav-list a:hover {
+.nav-link:hover {
   color: var(--blue);
 }
 
-.nav-list a.is-active {
+.nav-link.is-active {
   color: var(--blue);
 }
 
-.nav-list a.is-active::after {
+.nav-link.is-active::after {
   content: '';
   position: absolute;
   left: 50%;
@@ -120,19 +107,13 @@ nav {
 }
 
 @media (min-width: 1200px) {
-  nav {
-    margin-left: 419px;
+  .main-nav {
+    margin-left: 424px;
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1199.98px) {
-  nav {
-    margin-left: 243px;
-  }
-}
-
-@media (min-width: 1024px) {
-  header {
-    padding: 0 50px;
+  .main-nav {
+    margin-left: 248px;
   }
 }
