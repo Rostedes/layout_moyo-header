@@ -1,3 +1,142 @@
+/* style.css */
+
+:root {
+  --blue: #00ACDC; /* CSS змінна для синього кольору */
+}
+
+* {
+  margin: 0; /* Скидання зовнішніх відступів */
+  padding: 0; /* Скидання внутрішніх відступів */
+  box-sizing: border-box; /* Врахування padding і border у загальній ширині/висоті */
+}
+
 body {
-  margin: 0;
+  font-family: Roboto, sans-serif; /* Шрифт згідно з вимогами */
+  font-weight: 500; /* Середня жирність */
+  font-style: normal; /* Без курсиву */
+}
+
+/* Хедер */
+header {
+  display: flex; /* Використання flexbox */
+  align-items: center; /* Центрування по вертикалі */
+  width: 100%; /* На всю ширину */
+  height: 60px; /* Висота хедера */
+  padding: 0 50px; /* Відступи зліва і справа */
+  justify-content: flex-start; /* Вирівнювання зліва */
+}
+
+/* Логотип */
+.logo {
+  display: flex; /* Флекс-контейнер */
+  align-items: center; /* Центрування по вертикалі */
+  flex-shrink: 0; /* Не дозволяти зменшуватись */
+}
+
+.logo a {
+  display: flex; /* Флекс-контейнер для посилання */
+  align-items: center; /* Центрування */
+}
+
+.logo img {
+  width: 40px; /* Фіксована ширина */
+  height: 40px; /* Фіксована висота */
+}
+
+/* Навігація */
+nav {
+  display: flex; /* Flexbox */
+  align-items: center; /* Центрування */
+  flex-grow: 1; /* Займає увесь вільний простір */
+}
+
+.nav-list {
+  list-style: none; /* Без маркерів списку */
+  display: flex; /* Рядкова навігація */
+  align-items: center; /* Центрування по вертикалі */
+  padding: 0;
+  margin: 0; /* Без зовнішніх відступів */
+  justify-content: flex-start; /* Вирівнювання по лівому краю */
+}
+
+.nav-list li {
+  flex-shrink: 0; /* Не стискається */
+  height: 60px; /* Висота пункту меню як у хедера */
+  display: flex; /* Центрування лінка всередині */
+  align-items: center; /* Центрування по вертикалі */
+  margin-left: 20px; /* Відступ між пунктами */
+  position: relative; /* Для позиціонування псевдоелемента */
+}
+
+.nav-list li:first-child {
+  margin-left: 0; /* Без відступу перед першим */
+}
+
+.nav-list a {
+  display: flex; /* Відображення як флекс */
+  align-items: center; /* Центрування по вертикалі */
+  justify-content: center; /* Центрування по горизонталі */
+  height: 100%; /* Повна висота елемента */
+  padding-top: 23px; /* Відступ зверху */
+  padding-bottom: 22px; /* Відступ знизу */
+  text-decoration: none; /* Без підкреслення */
+  text-transform: uppercase; /* Всі літери великі */
+  font-weight: 500;
+  font-size: 12px;
+  color: black;
+  position: relative; /* Для псевдоелемента */
+  letter-spacing: 0;
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  line-height: 100%;
+}
+
+.nav-list a[data-qa="apple"] {
+  padding-top: 22.5px; /* Точне вирівнювання згідно макету */
+  padding-bottom: 22.5px;
+}
+
+.nav-list a[data-qa="samsung"] {
+  padding-top: 22.5px;
+  padding-bottom: 22.5px;
+}
+
+.nav-list a:hover {
+  color: var(--blue); /* Колір при наведенні */
+}
+
+.nav-list a.is-active {
+  color: var(--blue); /* Активне посилання */
+}
+
+.nav-list a.is-active::after {
+  content: ''; /* Порожній контент */
+  position: absolute; /* Абсолютне позиціонування */
+  left: 50%; /* Центрування */
+  transform: translateX(-50%);
+  bottom: 0; /* Вирівнювання до "підлоги" */
+  width: 37px; /* Ширина підкреслення */
+  height: 4px; /* Висота підкреслення */
+  background-color: var(--blue);
+  border-radius: 8px; /* Скруглення */
+  margin-bottom: 0; /* Без зміщення вверх */
+}
+
+/* Медіа-запити */
+@media (min-width: 1200px) {
+  nav {
+    margin-left: 419px; /* чіткий відступ від лівого краю */
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+  nav {
+    margin-left: 243px; /* чіткий відступ від лівого краю */
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    padding: 0 50px; /* Повторне задання безпеки */
+  }
 }
